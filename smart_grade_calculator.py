@@ -26,11 +26,17 @@ def calculation():
     
 # Ask the amount of assignments
 while True:
-    amount_of_assignments.append(int(input("How many assignments do you have?")))
-
+    try:
+        amount_of_assignments.append(int(input("How many assignments do you have?").strip()))
+        break
+    except:
+        print("Enter a valid answer")
 # ask results in assignments
-for i in range(amount_of_assignments[0]):
-    assignments.append(int(input("Enter your grades:")))
-        
+while True:
+    try:
+        for i in range(amount_of_assignments[0]):
+            assignments.append(int(input("Enter your grades:")))        
 # call caluclation function
-calculation()
+        calculation()
+    except:
+        print("Answer a valid answer")
