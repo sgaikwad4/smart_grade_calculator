@@ -1,3 +1,6 @@
+# Grades lists
+amount_of_assignments = []
+assignments = []
 
 # caluclation function
 def calculation():
@@ -37,13 +40,10 @@ def get_assignments():
                 assignment = (int(input("Enter your grades:")))
                 if 0<=assignment<=100:
                     assignments.append(assignment)        
-    # call caluclation function
-            calculation()
+            break
         except:
             print("Answer a valid answer")
-            
-amount_of_assignments = []
-assignments = []
-
+# call caluclation function
+    calculation()
 if 1==1:
     get_amount_of_assignments()
