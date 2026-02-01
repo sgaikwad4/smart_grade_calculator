@@ -1,6 +1,3 @@
-# grades lists
-assignments = []
-amount_of_assignments = []
 
 # caluclation function
 def calculation():
@@ -25,18 +22,28 @@ def calculation():
         print(f"Your grade is an A at {average}%")
     
 # Ask the amount of assignments
-while True:
-    try:
-        amount_of_assignments.append(int(input("How many assignments do you have?").strip()))
-        break
-    except:
-        print("Enter a valid answer")
+def get_amount_of_assignments():
+    while True:
+        try:
+            amount_of_assignments.append(int(input("How many assignments do you have?").strip()))
+            get_assignments()
+        except:
+            print("Enter a valid answer")
 # ask results in assignments
-while True:
-    try:
-        for i in range(amount_of_assignments[0]):
-            assignments.append(int(input("Enter your grades:")))        
-# call caluclation function
-        calculation()
-    except:
-        print("Answer a valid answer")
+def get_assignments():
+    while True:
+        try:
+            for i in range(amount_of_assignments[0]):
+                assignment = (int(input("Enter your grades:")))
+                if 0<=assignment<=100:
+                    assignments.append(assignment)        
+    # call caluclation function
+            calculation()
+        except:
+            print("Answer a valid answer")
+            
+amount_of_assignments = []
+assignments = []
+
+if 1==1:
+    get_amount_of_assignments()
