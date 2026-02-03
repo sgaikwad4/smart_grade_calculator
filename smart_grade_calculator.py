@@ -6,21 +6,26 @@ assignments = []
 def get_amount_of_assignments():
     while True:
         try:
-            amount_of_assignments.append(int(input("How many assignments do you have?").strip()))
+            amount_of_assignments.clear()
+            amount_of_assignments.append(int(input("How many assignments do you have? ").strip()))
             get_assignments()
-        except:
+            break
+        except ValueError:
             print("Enter a valid answer")
-get_amount_of_assignments()
+
 # ask results in assignments
 def get_assignments():
+    assignments.clear()
     for x in range(amount_of_assignments[0]):
         while True:
             try:
-                assignment = (int(input("Enter your grades:").strip()))
+                assignment = (int(input("Enter your grades: ").strip()))
                 if 0<=assignment<=100:
                     assignments.append(assignment)
                     break
-            except:
+                else:
+                    print("Enter a number between 0 and 100")
+            except ValueError:
                 print("Answer a valid answer")
     calculation()
     
@@ -46,11 +51,9 @@ def calculation():
 
 def restart():
     while True:
-        restart_choice = input("Do you want to do another calculation [y]es or [n]o").strip()
+        restart_choice = input("Do you want to do another calculation [y]es or [n]o ").strip()
         if restart_choice == "y":
             average = 0
-            amount_of_assignments.clear()
-            assignments.clear()
             get_amount_of_assignments()
             break
         elif restart_choice == "n":
@@ -58,6 +61,7 @@ def restart():
             break
         else:
             print("Enter a valid answer")
+get_amount_of_assignments()
             
 
 
